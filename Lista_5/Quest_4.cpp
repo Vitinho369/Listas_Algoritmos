@@ -57,18 +57,11 @@ int main(){
         cout << endl;
     }
 
-    if(cont == -1){
+    if(cont == -1){ // caso não haja nenhuma repeticao na matriz
         cout << "\nNao ha nenhuma valor igual na matriz";
-    }else{
+    }else{ // caso ocorra repeticao na matriz
 
-        cout << endl;
-
-        for(c=0; c <= cont; c++){
-            cout << numRepetidos[c] << " ";
-        }
-
-        cout << endl;
-        for(c=0; c <= cont; c++){
+        for(c=0; c <= cont; c++){ // contando quantas vezes um numero se repete na matriz a partir do vetor normalizado
             for(i=0; i < tamLinha; i++){
                 for(j=0; j < tamColuna; j++){
                     if(numRepetidos[c] == M[i][j]){
@@ -81,7 +74,6 @@ int main(){
             }
                 
             contRepete = 0;
-            // cout << "\nNumero " << numRepetidos[c] << " se repetiu " << contRepetidos[c] << " vezes";
         }
     }
 }

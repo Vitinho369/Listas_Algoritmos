@@ -3,7 +3,7 @@ using namespace std;
 
 int main(){
     const int tamLinha = 5, tamColuna = 5, tamVetor = tamLinha*tamColuna;
-    int i,j,c,v,iRepete, jRepete,contRepete=0, numRepetidos[tamVetor], contRepetidos[tamVetor];
+    int i,j,c,v,iRepete, jRepete,contRepete=0, numRepetidos[tamVetor];
     bool existe=false, procuraIgual = false;
     int M[tamLinha][tamColuna],k=0,cont=-1;
 

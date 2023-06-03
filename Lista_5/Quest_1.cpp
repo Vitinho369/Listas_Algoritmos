@@ -1,3 +1,6 @@
+/*Elabore um algoritmo que leia uma matriz M(6,6) e um valor A inteiro e multiplique 
+a matriz M pelo valor A inserindo os resultados em um vetor de V(36). 
+Ao final, escreva o vetor V.*/
 #include<iostream>
 using namespace std;
 

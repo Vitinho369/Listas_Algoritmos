@@ -1,3 +1,7 @@
+/*Escreva um algoritmo que leia uma matriz A(15,5) e a escreva. Verifique, a 
+seguir, quais os elementos de A que estão repetidos e quantas vezes cada um está repetido. 
+Escrever cada elemento repetido com uma mensagem dizendo quantas vezes cada elemento aparece em A. 
+*/
 #include<iostream>
 using namespace std;
 

@@ -1,3 +1,7 @@
+/*Escreva um algoritmo que leia uma matriz M(12,13) e multiplique todos 
+os 13 elementos de cada uma das 12 linhas de M pelo maior elemento daquela linha. 
+Escreva a matriz lida e a modificada.
+*/
 #include<iostream>
 using namespace std;
 

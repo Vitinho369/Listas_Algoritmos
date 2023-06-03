@@ -1,3 +1,7 @@
+/*Elabore um algoritmo que leia uma string qualquer e escreva-a espelhada. 
+Entrada: “uma frase qualquer” 
+Saída: “reuqlauq esarf amu”
+*/
 #include<iostream>
 #include<string>
 using namespace std;

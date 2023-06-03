@@ -1,3 +1,8 @@
+/*Elabore um algoritmo que leia uma frase em uma string e uma palavra em outra string, 
+verifique e escreva se a palavra está contida na frase. 
+Entradas: “esta é a frase” e “frase” 
+Saída: a palavra “frase” está contida na frase “esta é a frase”. 
+*/
 #include<iostream>
 #include<string>
 using namespace std;

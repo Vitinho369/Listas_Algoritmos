@@ -1,3 +1,8 @@
+/*Escreva um algoritmo que leia uma matriz M(10,10) e a escreva. Troque, a seguir: 
+- Os elementos da diagonal principal pelos elementos da diagonal secundária;
+- Os elementos da linha 5 com os da coluna 10. 
+Escreva a matriz modificada. 
+*/
 #include<iostream>
 using namespace std;
 

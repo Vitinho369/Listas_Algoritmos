@@ -1,3 +1,11 @@
+/*Escreva um algoritmo que leia uma matriz M(5,5) e calcula as somas abaixo, escreva 
+essas somas e a matriz. 
+a) da linha 4 de M 
+b) da coluna 2 de M 
+c) da diagonal principal 
+d) da diagonal secundária 
+e) de todos os elementos da matriz M 
+*/
 #include<iostream>
 using namespace  std;
 

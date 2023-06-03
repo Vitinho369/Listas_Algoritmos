@@ -1,3 +1,7 @@
+/*Escreva um algoritmo que leia um número inteiro A e uma matriz M (30,30) de inteiros. 
+Conte quantos valores  da matriz M são iguais a A. Crie, a seguir, uma matriz X contendo 
+todos os elementos de M diferentes de A (quando for igual a A, insira um 0). 
+Mostre os resultados. */
 #include<iostream>
 using namespace std;
 

@@ -1,3 +1,9 @@
+/*Elabore um algoritmo que declare duas strings e leia a primeira string. 
+Em seguida, copie o texto da primeira  string para a segunda em letras 
+maiúsculas se a primeira letra da primeira string for minúscula ou em letras 
+minúsculas se a primeira letra da primeira string for maiúscula. Imprima
+no final o conteúdo das duas strings. 
+*/
 #include<iostream>
 #include<string>
 using namespace std;

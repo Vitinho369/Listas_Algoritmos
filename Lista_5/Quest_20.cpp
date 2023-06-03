@@ -1,3 +1,8 @@
+/*Elabore um algoritmo que receba um nome completo em uma string e 
+apresente apenas o último nome e o  1º nome na seguinte forma: último nome, 1º nome. 
+
+Entrada: Ana Fernandes Oliveira 
+Saída: Oliveira, Ana */
 #include<iostream>
 #include<string>
 using namespace std;

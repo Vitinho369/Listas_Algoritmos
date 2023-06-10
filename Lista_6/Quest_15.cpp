@@ -33,7 +33,7 @@ situações ocorrerem
 #include<string>
 using namespace std;
 
-struct tLivro{
+struct Livro{
     int isbn;
     string titulo;
     string autor;
@@ -42,9 +42,9 @@ struct tLivro{
 };
 
 int main(){
-    const int tamLivros = 1;
-    int op,contLivro=0, isbnBusca, opBusca, paginasBusca, indiceLivro;
-    tLivro livro[tamLivros];
+    const int tamLivros = 10000;
+    int op,conLivro=0, isbnBusca, isbnAltera, opBusca, paginasBusca, indiceLivro;
+    Livro livro[tamLivros];
     string tituloBusca, autorBusca;
     float precoBusca;
     bool encontraLivro;
@@ -63,7 +63,7 @@ int main(){
 
         switch (op){
         case 1:
-            if(contLivro == tamLivros){
+            if(conLivro == tamLivros){
                 cout << "\nNao eh mais possivel cadastrar livros";
             }else{
 
@@ -72,11 +72,11 @@ int main(){
                     cout << "\nDigite o ISBN do livro: ";
                     cin >> isbnBusca;
 
-                    if(contLivro>0){
-                        for(int i = 0; i < contLivro; i++){
+                    if(conLivro>0){
+                        for(int i = 0; i < conLivro; i++){
                             if(isbnBusca == livro[i].isbn){
                                 encontraLivro = true;
-                                i=contLivro;
+                                i=conLivro;
                             }
                         }
                     }
@@ -85,20 +85,20 @@ int main(){
                     }
                 }while(encontraLivro);
 
-                livro[contLivro].isbn = isbnBusca;
+                livro[conLivro].isbn = isbnBusca;
                 cout << "\nDigite o titulo do livro: ";
                 getchar();
-                getline(cin, livro[contLivro].titulo);
+                getline(cin, livro[conLivro].titulo);
                 cout << "\nDigite o nome do autor: ";
-                getline(cin, livro[contLivro].autor);
+                getline(cin, livro[conLivro].autor);
                 cout << "\nDigite o preco do livro: ";
-                cin >> livro[contLivro].preco;
+                cin >> livro[conLivro].preco;
                 cout << "\nDigite a qtd de paginas do livro: ";
-                cin >> livro[contLivro].qtdPaginas;
+                cin >> livro[conLivro].qtdPaginas;
                 cout << "\n-------------------------------\n";
                 cout << "LIVRO CADASTRADO COM SUCESSO :)";
                 cout << "\n-------------------------------\n";
-                contLivro++;
+                conLivro++;
             }
             break;
 
@@ -117,7 +117,7 @@ int main(){
                 case 1:
                     cout << "\nDigite o ISBN do livro que deseja encontrar: ";
                     cin >> isbnBusca;
-                    for(int i=0; i < contLivro;i++){
+                    for(int i=0; i < conLivro;i++){
                         if(livro[i].isbn == isbnBusca){
                             cout << "\n---------------------------\n";
                             cout << "\nTITULO: " << livro[i].titulo;
@@ -139,7 +139,7 @@ int main(){
                     cout << "\nDigite o autor do livro que deseja encontrar: ";
                     getchar();
                     getline(cin, tituloBusca);
-                    for(int i=0; i < contLivro;i++){
+                    for(int i=0; i < conLivro;i++){
                         if(livro[i].titulo == tituloBusca){
                             cout << "\n---------------------------\n";
                             cout << "\nTITULO: " << livro[i].titulo;
@@ -159,7 +159,7 @@ int main(){
                     cout << "\nDigite o titulo do livro que deseja encontrar: ";
                     getchar();
                     getline(cin,autorBusca);
-                    for(int i=0; i < contLivro;i++){
+                    for(int i=0; i < conLivro;i++){
                         if(livro[i].autor == autorBusca){
                             cout << "\n---------------------------\n";
                             cout << "\nTITULO: " << livro[i].titulo;
@@ -178,7 +178,7 @@ int main(){
                     case 4:
                     cout << "\nDigite o preco do livro que deseja encontrar: ";
                     cin >> precoBusca;
-                    for(int i=0; i < contLivro;i++){
+                    for(int i=0; i < conLivro;i++){
                         if(livro[i].preco == precoBusca){
                             cout << "\n---------------------------\n";
                             cout << "\nTITULO: " << livro[i].titulo;
@@ -197,7 +197,7 @@ int main(){
                     case 5:
                     cout << "\nDigite a qtd. de paginas do livro que deseja encontrar: ";
                     cin >> paginasBusca;
-                    for(int i=0; i < contLivro;i++){
+                    for(int i=0; i < conLivro;i++){
                         if(livro[i].autor == autorBusca){
                             cout << "\n---------------------------\n";
                             cout << "\nTITULO: " << livro[i].titulo;
@@ -221,10 +221,8 @@ int main(){
             case 3:
                 cout << "\nDigite o ISBN do livro que deseja alterar: ";
                 cin >> isbnBusca;
-
-                
                 encontraLivro = false;
-                for(int i=0; i < contLivro; i++){
+                for(int i=0; i < conLivro; i++){
                     if(livro[i].isbn == isbnBusca){
                         indiceLivro = i;   
                         encontraLivro = true;  
@@ -234,30 +232,31 @@ int main(){
                 if(!encontraLivro){
                     cout << "\nLiVRO NAO ENCONTRADO";
                 }else{
-                    cout << "\nDigite o novo ISBN do livro: ";
-                    cin >> isbnBusca;
+                    cout << "\nDigite o novo ISBN do livro (se quisr que seja o mesmo ISBN, apenas digite ele novamente): ";
+                    cin >> isbnAltera;
 
                     encontraLivro = false;
-                    for(int i=0; i < contLivro; i++){
-                        if(livro[i].isbn == isbnBusca){
-                            i = contLivro;  
-                            encontraLivro = true;   
+                    if(isbnAltera != isbnBusca){
+                        for(int i=0; i < conLivro; i++){
+                            if(livro[i].isbn == isbnAltera){
+                                i = conLivro;  
+                                encontraLivro = true;   
+                            }
                         }
                     }
-
                     if(encontraLivro) {
                         cout << "\nISBN ja presente no banco, nao eh possivel altera-lo";
                     }else{
                         livro[indiceLivro].isbn = isbnBusca;
                         cout << "\nDigite o novo titulo do livro: ";
                         getchar();
-                        getline(cin, livro[contLivro].titulo);
+                        getline(cin, livro[conLivro].titulo);
                         cout << "\nDigite o novo nome do autor: ";
-                        getline(cin, livro[contLivro].autor);
+                        getline(cin, livro[conLivro].autor);
                         cout << "\nDigite o novo preco do livro: ";
-                        cin >> livro[contLivro].preco;
+                        cin >> livro[conLivro].preco;
                         cout << "\nDigite a nova qtd de paginas do livro: ";
-                        cin >> livro[contLivro].qtdPaginas;
+                        cin >> livro[conLivro].qtdPaginas;
                         cout << "\n-------------------------------\n";
                         cout << "LIVRO ALTERADO COM SUCESSO :)";
                         cout << "\n-------------------------------\n";
@@ -266,13 +265,13 @@ int main(){
             break;
 
             case 4:
-                if(contLivro == 0){
+                if(conLivro == 0){
                     cout << "\nNAO EH POSSIVEL EXCLUIR LIVROS";
                 }else{
                     cout << "\nDigite o ISBN do livro que deseja excluir: ";
                     cin >> isbnBusca;
                     encontraLivro = false;
-                    for(int i=0; i < contLivro; i++){
+                    for(int i=0; i < conLivro; i++){
                         if(livro[i].isbn ==  isbnBusca){
                             encontraLivro = true;
                             indiceLivro = i;
@@ -282,13 +281,13 @@ int main(){
                     if(!encontraLivro){
                         cout << "\nLIVRO NAO CADASTRADO, NAO EH POSSIVEL EXCLUIR";
                     }else{
-                       for(int i=indiceLivro; i < (contLivro-1); contLivro++){
+                       for(int i=indiceLivro; i < (conLivro-1); i++){
                             livro[i].autor = livro[i+1].autor;
                             livro[i].isbn = livro[i+1].isbn;
                             livro[i].titulo = livro[i+1].titulo;
                             livro[i].qtdPaginas = livro[i+1].qtdPaginas;
                        }
-                       contLivro--; 
+                       conLivro--; 
                         cout << "\n-------------------------------\n";
                         cout << "LIVRO EXCLUIDO COM SUCESSO :)";
                         cout << "\n-------------------------------\n";
@@ -298,7 +297,7 @@ int main(){
             
             case 5:
                 cout << "\nLIVROS CADASTRADOS: ";
-                for(int i=0; i < contLivro;i ++){
+                for(int i=0; i < conLivro;i ++){
                     cout << "\n---------------------------\n";
                     cout << "\nTITULO: " << livro[i].titulo;
                     cout << "\nAUTOR: " << livro[i].autor;

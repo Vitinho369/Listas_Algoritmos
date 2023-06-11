@@ -20,33 +20,81 @@ struct ClienteBanco{
 
 int main(){
     ClienteBanco clienteBanco[15];
+    string buscaCPF;
+    bool encontraCPF;
     int cont=0,op;
 
     do{
-        cout << "\n1- CADASTRAR CLIENTE";
+        cout << "\n1-CADASTRAR CLIENTE";
         cout << "\n2-IMPRIMIR DADOS COM BASE NO CPF";
         cout << "\n3-IMPRIMIR CLIENTES COM SALDO NEGATIVO";
         cout << "\n4-SAIR";
+        cout << "\nDigite uma opcao:";
         cin >> op;
 
         switch (op){
         case 1:
             if(cont < 15){
-                cout << "";
+                cout << "\nDigite o nome do cliente:";
+                getchar();
+                getline(cin, clienteBanco[cont].nome);
+                cout << "\nDigite o cpf do cliente:";
+                getline(cin, clienteBanco[cont].cpf);
+                cout << "\nDigite o rg do cliente:";
+                getline(cin, clienteBanco[cont].rg);
+                cout << "\nDigite o numero da conta:";
+                cin >> clienteBanco[cont].numConta;
+                cout << "\nDigite a data de abertura da conta:";
+                getchar();
+                getline(cin, clienteBanco[cont].dataAbertura);
+                cout << "\nDigite o saldo da conta:";
+                cin >> clienteBanco[cont].saldo;
+                cont++;
             }else{
                 cout << "\nNAO EH POSSIVEL CADASTRAR MAIS FUNCIONARIOS";
             }
             break;
         
         case 2:
-            /* code */
+            cout << "\nDigite o cpf que deseja encontrar:";
+            getchar();
+            getline(cin, buscaCPF);
+            encontraCPF = false;
+            for(int i=0; i < cont;i++){
+                if(buscaCPF == clienteBanco[i].cpf){
+                    encontraCPF = true;
+                    cout << "\nDADOS DO CLIENTE " << clienteBanco[i].nome << ":\n";
+                    cout << "\nRG......................." << clienteBanco[i].rg;
+                    cout << "\nNUMERO DA CONTA.........." << clienteBanco[i].numConta;
+                    cout << "\nDATA DE ABETURA.........." << clienteBanco[i].dataAbertura;
+                    cout << "\nSALDO DA CONTA..........."<< clienteBanco[i].saldo << "\n";
+                    i = cont;
+                }
+            }
+
+            if(!encontraCPF)
+                cout << "\nNao existe cliente com esse CPF\n";
             break;
 
         case 3:
-            /* code */
+            cout <<"\nCLIENTES COM SALADO NEGATIVO:\n";
+            cout << "\n--------------------------------------------\n";
+            for(int i=0; i < cont;i++){
+                if(clienteBanco[i].saldo < 0){
+                    cout << "\nNOME....................." << clienteBanco[i].nome;
+                    cout << "\nCPF......................" << clienteBanco[i].cpf;
+                    cout << "\nRG......................." << clienteBanco[i].rg;
+                    cout << "\nNUMERO DA CONTA.........." << clienteBanco[i].numConta;
+                    cout << "\nDATA DE ABETURA.........." << clienteBanco[i].dataAbertura;
+                    cout << "\nSALDO DA CONTA..........."<< clienteBanco[i].saldo << "\n";
+                }
+            }
+            cout << "\n--------------------------------------------\n";
             break;
 
-        default: cout << "\nOPCAO INVALIDA";
+            case 4: cout << "\nFIM DE PROGRAMA";
+            break;
+            default: cout << "\nOPCAO INVALIDA";
         }
     }while(op != 4);
 }

@@ -33,7 +33,7 @@ void MinMax(int *vetor, int *min, int *max){
     *min = vetor[0];
     *max = vetor[0];
 
-    for(int i=0; i < 10;i++){
+    for(int i=1; i < 10;i++){
         if(*max < vetor[i]){
             *max = vetor[i];
         }

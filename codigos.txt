@@ -1,0 +1,129 @@
+#include<iostream>
+#include<string>
+#include<cstring>
+#include<string.h>
+using namespace std;
+
+int main(){
+    string nome;
+    char n[10];
+    cin >> nome;
+    cin >> n;
+
+    cout << "\nNome: " << nome;
+    cout << "\nn: " << n;
+    // cin.ignore();
+    cout << endl;
+    getchar();
+    getline(cin, nome);
+    fgets(n, 10, stdin);
+
+    cout << "\nNome com getline: " << nome;
+    cout << "\nn com o fgtes: " << n;
+    cout << "Tamanho do vetor: "<< strlen(n) << endl;
+    cout <<  "Tamanho da string: "<< nome.length();
+}
+
+
+#include<iostream>
+#include<string>
+#include<cstring>
+#include<string.h>
+using namespace std;
+
+int main(){
+    string nome;
+    char n[10];
+    cout << endl;
+    getline(cin, nome);
+    fgets(n, 10, stdin);
+
+    cout << "\nNome com getline: " << nome;
+    cout << "\nn com o fgtes: " << n;
+
+
+    cout << nome.substr(6,10);
+}
+
+
+#include<iostream>
+#include<string>
+#include<cstring>
+#include<string.h>
+using namespace std;
+
+int main(){
+    string nome;
+    getline(cin, nome);
+
+    int cont=0;
+    char aux;
+    string invertida = nome;
+    for(int i = nome.size()-1; i >=0; i--){
+            invertida[cont] = nome[i];
+            cont++;
+    } 
+
+    cout <<"Invertida: " << invertida;
+}
+
+#include<iostream>
+#include<string>
+#include<cstring>
+#include<string.h>
+using namespace std;
+
+int main(){
+    string nome;
+    string invertida;
+    getline(cin, nome);
+
+    int cont=0;
+    char aux;
+    for(int i = nome.size()-1; i >=nome.size()/2; i--){
+            aux = nome[cont];
+            nome[cont] = nome[i];
+            nome[i] = aux;
+            cont++;
+    } 
+
+    cout << nome;
+}
+
+#include <iostream>
+#include <string>
+using namespace std;
+int main() {
+  string nome;
+  string sobrenome;
+
+  getline(cin, nome);
+  getline(cin, sobrenome);
+
+  string nomecompleto = nome + sobrenome;
+
+  cout << "\nNome :" << nome << endl;
+  cout << "\nSobrenome :" << sobrenome << endl;
+  cout << "\nNome Completo:" << nomecompleto << endl;
+}
+
+#include<iostream>
+#include<string>
+#include<cstring>
+#include<string.h>
+using namespace std;
+
+int main(){
+    string nome;
+    getline(cin, nome);
+
+    int cont=0;
+    char aux;
+    string invertida = "";
+    for(int i = nome.size()-1; i >=0; i--){
+            invertida = invertida + nome[i];
+            cout << invertida << endl;
+    } 
+
+    cout <<"Invertida: " << invertida;
+}
